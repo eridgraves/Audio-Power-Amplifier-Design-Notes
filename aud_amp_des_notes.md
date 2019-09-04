@@ -49,4 +49,36 @@ The author covers what he sees as the largest areas of misinformation in the aud
 - "Power supply design has a subtle effect on sound, outside of ripple injection and other ordinary concerns"
 	- Any good power supply will be designed to be intolerant to imperfections at its input.
 
-PAGE 22
+Skimmed the rest of chapter 1
+
+# Chapter 2: History, Architecture, and Negative Feedback
+
+'Thermal Runaway' - an increase in temperature results in a further increase in temperature. Especially prominent in Germanium devices.
+
+## Amplifier Architectures
+
+### Three-Stage: transconductance(V in, I out), transimpedance(I in, V out), unity-voltage-gain output 
+- Most solid state audio amplifiers use this configuration. 
+- 2nd stage has to provide all of the voltage gain (called VAS or pre-driver)
+- Advantages:
+	- Easy to tune to reduce certain effects: little signal voltage at input to second stage/ output of 1st stage, and thus minimizes Miller phase-shift and possible Early effect
+	- Compensation capacitor reduces 2nd stage output impedance, thus input impedance of the 3rd stage (which could cause non-linear loading) generates less distortion.
+	- Total forward gain = transconductance of input stage * transimpedance of 2nd stage (totally determined by Miller capacitor, except at VLF) * Unity (from 3rd stage)
+- Compensation: dominant pole belongs to 2nd stage, and can be increased to lower the HF negative feedback to a desired value. local NFB through the Miller capacitor also has a desirable linear effect. 
+
+### Two-Stage: transconductance, combined transimpedance and output stage
+- Are not very popular, mostly due to complexities in gain and compensation when compared to a Three-Stage design. 
+
+### Power Amplifier Classes:
+- There's a bunch of them, the majority of audio amplifiers are Type B.
+- Variations on Class-B:
+	- Error-Correcting:
+	- Non-Switching: Attempting to minimize distortion caused by transistors turning on and off during normal operation.
+	- Current-Drive: amplifier acts as a current source with some sufficiently high output impedance (rather than voltage source with zero output impedance).
+	- Bloomey Principle: transistors are kept from turing off completely by designing some minimum idling current that can be separately set for each output device. 
+	- Nested differentiating FB loops
+
+### AC vs DC Coupling
+- AC Coupling: single supply rail, with output between 0 and VDD. Average output is VDD/2
+- DC Coupling: 2 Supply rails with amplifier output between -VDD and +VDD. Average output is 0.
+
